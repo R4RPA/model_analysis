@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>749</width>
-    <height>384</height>
+    <width>751</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>RST_TO_PPT</string>
+   <string>Model Analysis</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_80">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>25</y>
+      <y>105</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -32,14 +32,14 @@
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;IHI QST #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ECM #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="search_open_term">
+   <widget class="QLineEdit" name="form_ihi_qst_num">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>20</y>
+      <y>100</y>
       <width>171</width>
       <height>30</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>320</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -71,7 +71,7 @@
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TIP FIX RST FILE &lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TIP FIX RST FILE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="tip_fix_file_path">
@@ -81,7 +81,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>140</y>
+      <y>320</y>
       <width>361</width>
       <height>30</height>
      </rect>
@@ -94,12 +94,15 @@
       <bold>false</bold>
      </font>
     </property>
+    <property name="text">
+     <string>path....</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="tip_fix_file_path_browse">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>140</y>
+      <y>320</y>
       <width>171</width>
       <height>30</height>
      </rect>
@@ -118,8 +121,8 @@
    <widget class="QLabel" name="label_71">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>310</y>
+      <x>10</x>
+      <y>554</y>
       <width>161</width>
       <height>20</height>
      </rect>
@@ -136,11 +139,11 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt; font-weight:400;&quot;&gt;* All fields are mandatory&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="reset">
+   <widget class="QPushButton" name="reset_selections">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>260</y>
+      <x>170</x>
+      <y>550</y>
       <width>151</width>
       <height>30</height>
      </rect>
@@ -156,11 +159,11 @@
      <string>RESET</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exit">
+   <widget class="QPushButton" name="exit_app">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>260</y>
+      <x>580</x>
+      <y>550</y>
       <width>151</width>
       <height>30</height>
      </rect>
@@ -176,11 +179,11 @@
      <string>EXIT</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="process_rst_files">
+   <widget class="QPushButton" name="process_input_rst_files">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>260</y>
+      <x>340</x>
+      <y>550</y>
       <width>221</width>
       <height>30</height>
      </rect>
@@ -200,7 +203,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>190</y>
+      <y>370</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -214,7 +217,7 @@
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TIP FREE RST FILE &lt;span style=&quot; color:#ff0000;&quot;&gt;*&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TIP FREE RST FILE&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="tip_free_file_path">
@@ -224,7 +227,7 @@
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>190</y>
+      <y>370</y>
       <width>361</width>
       <height>30</height>
      </rect>
@@ -237,12 +240,15 @@
       <bold>false</bold>
      </font>
     </property>
+    <property name="text">
+     <string>path....</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="tip_free_file_path_browse">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>190</y>
+      <y>370</y>
       <width>171</width>
       <height>30</height>
      </rect>
@@ -258,11 +264,11 @@
      <string>BROWSE RST FILE</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="search_open_term_2">
+   <widget class="QLineEdit" name="form_engine">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>60</y>
+      <y>140</y>
       <width>171</width>
       <height>30</height>
      </rect>
@@ -280,7 +286,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>65</y>
+      <y>145</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -297,11 +303,11 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ENGINE #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="search_open_term_3">
+   <widget class="QLineEdit" name="form_stage">
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>60</y>
+      <y>140</y>
       <width>41</width>
       <height>30</height>
      </rect>
@@ -319,7 +325,7 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>65</y>
+      <y>145</y>
       <width>71</width>
       <height>20</height>
      </rect>
@@ -336,11 +342,11 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;STAGE #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="search_open_term_4">
+   <widget class="QLineEdit" name="form_user_name">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>20</y>
+      <y>100</y>
       <width>171</width>
       <height>30</height>
      </rect>
@@ -358,7 +364,7 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>25</y>
+      <y>105</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -375,11 +381,11 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;USERNAME&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="search_open_term_5">
+   <widget class="QLineEdit" name="form_condition">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>60</y>
+      <y>140</y>
       <width>171</width>
       <height>30</height>
      </rect>
@@ -397,7 +403,7 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>65</y>
+      <y>145</y>
       <width>101</width>
       <height>20</height>
      </rect>
@@ -411,14 +417,14 @@
      </font>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MODEL #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CONDITION&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
+      <y>290</y>
       <width>731</width>
       <height>16</height>
      </rect>
@@ -431,6 +437,261 @@
     <property name="geometry">
      <rect>
       <x>0</x>
+      <y>410</y>
+      <width>731</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_85">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>30</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;MODEL ANALYSIS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_65">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>440</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TEMPLATE PATH&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="template_path_browse">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>440</y>
+      <width>171</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>BROWSE PPT FILE</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>530</y>
+      <width>731</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="template_path">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>440</y>
+      <width>361</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>path....</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="save_in_path_browse">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>490</y>
+      <width>171</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>BROWSE FOLDER</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_66">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>490</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;SAVE IN PATH&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="save_in_path">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>490</y>
+      <width>361</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>path....</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tip_fix_extract_modes">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>180</y>
+      <width>81</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_86">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>185</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TIP FIX EXTRACT MODES #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tip_free_extract_modes">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>190</y>
+      <width>81</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_87">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>195</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;TIP FREE EXTRACT MODES #&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
       <y>230</y>
       <width>731</width>
       <height>16</height>
@@ -440,13 +701,78 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <widget class="QLabel" name="label_67">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ANSYS PATH&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ansys_path_browse">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>250</y>
+      <width>171</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>BROWSE ANSYS PATH</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ansys_path">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>250</y>
+      <width>361</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>path....</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>749</width>
+     <width>751</width>
      <height>21</height>
     </rect>
    </property>
