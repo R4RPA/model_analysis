@@ -4,6 +4,7 @@ import json
 
 
 def extract_result_data(rst_filename, rst_type, extract_modes, result_images_folder):
+    print('rst_filename', rst_filename)
     """Read ansys results rst file"""
     result = pymapdl_reader.read_binary(rst_filename)
 
