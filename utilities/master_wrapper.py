@@ -1,16 +1,20 @@
 import json
 from utilities.extract_from_rst import extract_result_data
 from utilities.create_result_ppt import create_result_ppt
+import utilities.support_functions as sup_functions
 import os
 
 
 def process_rst_files(data_points):
+    
+    print(json.dumps(data_points,indent=2))
+    
     """Initiate variables"""
     tip_fix_rst_filename = data_points['tip_fix_rst_filename']
-    tip_fix_extract_modes = data_points['tip_fix_extract_modes']
+    tip_fix_extract_modes = int(data_points['tip_fix_extract_modes'])
     tip_free_rst_filename = data_points['tip_free_rst_filename']
-    tip_free_extract_modes = data_points['tip_free_extract_modes']
-    result_images_folder = data_points['result_images_folder']
+    tip_free_extract_modes = int(data_points['tip_free_extract_modes'])
+    result_images_folder = data_points['output_path']
     template_path = data_points['template_path']
     output_path = data_points['output_path']
 
@@ -31,23 +35,29 @@ def process_rst_files(data_points):
                    'tip_fix_list': tip_fix_results_list,
                    'tip_free_list': tip_free_results_list
                    }
-    create_result_ppt(template_path, output_path, result_dict)
 
+    print('result_dict', json.dumps(result_dict, indent=2))
+    create_result_ppt(template_path, output_path, result_dict)
+    delete_result_images(tip_fix_results_list)
+    delete_result_images(tip_free_results_list)
+
+def delete_result_images(image_list):
+    for result in image_list:
+        file_path = result['image']
+        sup_functions.delete_file(file_path)
 
 def main():
     """set folder to store results images and results"""
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    result_images_folder = os.path.join(os.getcwd(), 'data/result_images')
+    root_dir = os.path.abspath(os.path.join(root_dir, os.pardir))
     template_path = os.path.join(root_dir, 'data/template/modal_analysis_final_report_template.pptx')
     output_path = os.path.join(root_dir, 'data/output_reports')
 
     if not os.path.exists(output_path):
         os.makedirs(output_path)
-    if not os.path.exists(result_images_folder):
-        os.makedirs(result_images_folder)
 
-    tip_fix_rst_filename = 'data/rst_file/result_file.rst'
-    tip_free_rst_filename = 'data/rst_file/result_file.rst'
+    tip_fix_rst_filename = os.path.join(root_dir, 'data/rst_file/result_file.rst')
+    tip_free_rst_filename = os.path.join(root_dir, 'data/rst_file/result_file.rst')
 
     data_points = {'tip_fix_rst_filename': tip_fix_rst_filename, 
                    'tip_free_rst_filename': tip_free_rst_filename, 

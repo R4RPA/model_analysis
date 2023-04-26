@@ -1,5 +1,6 @@
 import datetime
 import utilities.support_functions as sup_functions
+from pptx.enum.text import PP_PARAGRAPH_ALIGNMENT
 from pptx import Presentation
 from pptx.table import Table
 import os.path
@@ -20,6 +21,13 @@ def create_result_ppt(template_path, out_path, result_dict):
     rst_type_list = ['tip_fix', 'tip_free']
     header_shape_list = ['Tip_Fix_Slide_Header', 'Tip_Free_Slide_Header']
     txt_match_list = ['{T1_PageNum}', '{T2_PageNum}']
+    
+    data_dict = result_dict['data']
+    sup_functions.replace_text_in_slide(slides[0], data_dict)
+    sup_functions.replace_text_in_slide(slides[2], data_dict)
+    sup_functions.replace_text_in_slide(slides[8], data_dict)
+    sup_functions.replace_text_in_slide(slides[13], data_dict)
+    
     slides_added = 0
     atlest_one_result = False
     slides_to_delete = []
@@ -77,195 +85,24 @@ def main():
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
-    results_list = [
-                          {
-                            "mode": 1,
-                            "frequency": 71.181,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 2,
-                            "frequency": 71.182,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 3,
-                            "frequency": 71.183,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 4,
-                            "frequency": 71.184,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 5,
-                            "frequency": 71.185,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 6,
-                            "frequency": 71.186,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 7,
-                            "frequency": 71.187,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 8,
-                            "frequency": 71.188,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 9,
-                            "frequency": 71.189,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 10,
-                            "frequency": 71.190,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 2,
-                            "frequency": 71.182,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 3,
-                            "frequency": 71.183,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 4,
-                            "frequency": 71.184,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 5,
-                            "frequency": 71.185,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 6,
-                            "frequency": 71.186,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 7,
-                            "frequency": 71.187,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 8,
-                            "frequency": 71.188,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 9,
-                            "frequency": 71.189,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 10,
-                            "frequency": 71.190,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 2,
-                            "frequency": 71.182,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 3,
-                            "frequency": 71.183,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 4,
-                            "frequency": 71.184,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 5,
-                            "frequency": 71.185,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 6,
-                            "frequency": 71.186,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 7,
-                            "frequency": 71.187,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 8,
-                            "frequency": 71.188,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 9,
-                            "frequency": 71.189,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 10,
-                            "frequency": 71.190,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 2,
-                            "frequency": 71.182,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 3,
-                            "frequency": 71.183,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 4,
-                            "frequency": 71.184,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 5,
-                            "frequency": 71.185,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 6,
-                            "frequency": 71.186,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          },
-                          {
-                            "mode": 7,
-                            "frequency": 71.187,
-                            "image": "data/result_images/tip_fix_mode_fig_2.png"
-                          },
-                          {
-                            "mode": 8,
-                            "frequency": 71.188,
-                            "image": "data/result_images/tip_fix_mode_fig_3.png"
-                          },
-                          {
-                            "mode": 9,
-                            "frequency": 71.189,
-                            "image": "data/result_images/tip_fix_mode_fig_0.png"
-                          },
-                          {
-                            "mode": 10,
-                            "frequency": 71.190,
-                            "image": "data/result_images/tip_fix_mode_fig_1.png"
-                          }
-                        ]
-    result_dict = {'tip_fix_list': results_list, 'tip_free_list': results_list}
-    create_result_ppt(template_path, output_path, result_dict)
+    results_dict = {'data': {'{ECM_Num}': 'ECM', '{EngineProg}': 'ENGINE', '{StageNum}': '5B',
+                    '{Condition}': 'COLD', '{UserName}': 'USERNAME', '{Date}': '01-03-2023'},
+                    'tip_fix_list': [
+                        {'mode': 1, 'frequency': 71.18, 'image': '/data/output_reports/tip_fix_mode_fig_0.png'},
+                        {'mode': 2, 'frequency': 71.18, 'image': '/data/output_reports/tip_fix_mode_fig_1.png'},
+                        {'mode': 3, 'frequency': 71.18, 'image': '/data/output_reports/tip_fix_mode_fig_2.png'},
+                        {'mode': 4, 'frequency': 71.18, 'image': '/data/output_reports/tip_fix_mode_fig_3.png'},
+                        {'mode': 5, 'frequency': 71.18, 'image': '/data/output_reports/tip_fix_mode_fig_4.png'},
+                        {'mode': 6, 'frequency': 71.18, 'image': '/data/output_reports/tip_fix_mode_fig_5.png'}],
+                    'tip_free_list': [
+                        {'mode': 1, 'frequency': 71.18, 'image': '/data/output_reports/tip_free_mode_fig_0.png'},
+                        {'mode': 2, 'frequency': 71.18, 'image': '/data/output_reports/tip_free_mode_fig_1.png'},
+                        {'mode': 3, 'frequency': 71.18, 'image': '/data/output_reports/tip_free_mode_fig_2.png'},
+                        {'mode': 4, 'frequency': 71.18, 'image': '/data/output_reports/tip_free_mode_fig_3.png'},
+                        {'mode': 5, 'frequency': 71.18, 'image': '/data/output_reports/tip_free_mode_fig_4.png'},
+                        {'mode': 6, 'frequency': 71.18, 'image': '/data/output_reports/tip_free_mode_fig_5.png'}]}
+    # result_dict = {'tip_fix_list': results_list, 'tip_free_list': results_list}
+    create_result_ppt(template_path, output_path, results_dict)
     print('Check : ', output_path, 'for reports')
 
 

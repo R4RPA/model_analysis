@@ -238,18 +238,9 @@ def replace_text_in_prs(prs, nc_result: dict):
 
 def replace_text_in_slide(slide, nc_result: dict):
     """Replace tags in slide with nc results"""
-    green_txt = 'margin is in acceptable limits. Hence, this NC can be accepted from clearance standpoint.'
-    red_txt = 'margin is not in acceptable limits. Hence, additional study is required.'
     for shape in slide.shapes:
         replace_text_in_shape(shape, nc_result)
-        if shape.has_text_frame:
-            if shape.text and green_txt in shape.text:
-                shape.fill.solid()
-                shape.fill.fore_color.rgb  = RGBColor(200, 230, 170)
-            elif shape.text and red_txt in shape.text:
-                shape.fill.solid()
-                shape.fill.fore_color.rgb  = RGBColor(250, 200, 200)
-                
+        
 def replace_text_in_shape(shape, nc_result: dict):
     """Replace tag text in a shape"""
     for match, replacement in nc_result.items():
@@ -268,7 +259,7 @@ def replace_text_in_shape(shape, nc_result: dict):
                         paragraph.runs[0].text = whole_text
                         paragraph.runs[0].font.color.rgb = RGBColor(0x0, 0x0, 0x0)
                         paragraph.runs[0].font.size = font_size
-
+                    whole_text = "".join(run.text for run in paragraph.runs)
 
 def replace_images_in_slide(slide, nc_result: dict):
     """Replace images in slide"""
@@ -312,6 +303,11 @@ def check_for_files(folder_path, pattern1, pattern2=None, pattern3=None):
     list2 = glob.glob(os.path.join(folder_path, pattern2)) if pattern2 else []
     list3 = glob.glob(os.path.join(folder_path, pattern3)) if pattern3 else []
     return list1 + list2 + list3
+
+
+def delete_file(file_path):
+    if os.path.isfile(file_path) or os.path.islink(file_path):
+        os.unlink(file_path)
 
 
 def delete_temp_files():
