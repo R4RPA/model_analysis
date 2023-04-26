@@ -5,6 +5,7 @@ import json
 from PyQt5 import QtWidgets
 from utilities.master_wrapper import process_rst_files
 from rst_ui import Ui_MainWindow
+import datetime
 
 
 class UiWindow(QtWidgets.QMainWindow):
@@ -13,7 +14,8 @@ class UiWindow(QtWidgets.QMainWindow):
         """Initiate GUI Window"""
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        self.set_tab_order()
+        
         """On Click and On Change Actions"""
         self.ui.tip_fix_file_path_browse.clicked.connect(self.tip_fix_file_path_browse)
         self.ui.tip_free_file_path_browse.clicked.connect(self.tip_free_file_path_browse)
@@ -82,6 +84,7 @@ class UiWindow(QtWidgets.QMainWindow):
         self.ui.statusbar.showMessage('')
         
     def process_input_rst_files(self):
+        """Initiate master wrapper script to process rst file"""
         self.ui.statusbar.showMessage('')
         input_params = self.get_input_params()
         if input_params:
@@ -89,6 +92,7 @@ class UiWindow(QtWidgets.QMainWindow):
             self.ui.statusbar.showMessage('Check SAVE_IN_PATH folder for reports')
         
     def get_input_params(self):
+        """read data from form fields"""
         form_ihi_qst_num = self.ui.form_ihi_qst_num.text()
         form_engine = self.ui.form_engine.text()
         form_stage = self.ui.form_stage.text()
@@ -118,11 +122,12 @@ class UiWindow(QtWidgets.QMainWindow):
             }
         
         data_points1 = {
-            'ECM_Num': form_ihi_qst_num,
-            'EngineProg': form_engine,
-            'StageNum': form_stage,
-            'Condition': form_condition,
-            'UserName': form_user_name
+            '{ECM_Num}': form_ihi_qst_num,
+            '{EngineProg}': form_engine,
+            '{StageNum}': form_stage,
+            '{Condition}': form_condition,
+            '{Date}': datetime.date.today().strftime("%d-%m-%Y"),
+            '{UserName}': form_user_name
             }
             
         missing_fields = self.validate_datapoints(data_points1)
@@ -136,6 +141,7 @@ class UiWindow(QtWidgets.QMainWindow):
         return data_points if missing_fields == '' else {}
         
     def validate_datapoints(self, data_dict):
+        """Validate input params to check if any blank fields"""
         missing_fields = ''
         for key in data_dict:
             val = data_dict[key]
@@ -143,7 +149,26 @@ class UiWindow(QtWidgets.QMainWindow):
                 missing_fields += key + ', '
         return missing_fields
 
-
+    def set_tab_order(self):
+        """Set tab index order to navigate between fields with tab"""
+        self.ui.form_ihi_qst_num.setFocus()
+        QtWidgets.QWidget.setTabOrder(self.ui.form_ihi_qst_num, self.ui.form_user_name)
+        QtWidgets.QWidget.setTabOrder(self.ui.form_user_name, self.ui.form_engine)
+        QtWidgets.QWidget.setTabOrder(self.ui.form_engine, self.ui.form_stage)
+        QtWidgets.QWidget.setTabOrder(self.ui.form_stage, self.ui.form_condition)
+        QtWidgets.QWidget.setTabOrder(self.ui.form_condition, self.ui.tip_fix_extract_modes)
+        QtWidgets.QWidget.setTabOrder(self.ui.tip_fix_extract_modes, self.ui.tip_free_extract_modes)
+        QtWidgets.QWidget.setTabOrder(self.ui.tip_free_extract_modes, self.ui.ansys_path_browse)
+        QtWidgets.QWidget.setTabOrder(self.ui.ansys_path_browse, self.ui.tip_fix_file_path_browse)
+        QtWidgets.QWidget.setTabOrder(self.ui.tip_fix_file_path_browse, self.ui.tip_free_file_path_browse)
+        QtWidgets.QWidget.setTabOrder(self.ui.tip_free_file_path_browse, self.ui.template_path_browse)
+        QtWidgets.QWidget.setTabOrder(self.ui.template_path_browse, self.ui.save_in_path_browse)
+        QtWidgets.QWidget.setTabOrder(self.ui.save_in_path_browse, self.ui.process_input_rst_files)
+        QtWidgets.QWidget.setTabOrder(self.ui.process_input_rst_files, self.ui.reset_selections)
+        QtWidgets.QWidget.setTabOrder(self.ui.reset_selections, self.ui.exit_app)
+        QtWidgets.QWidget.setTabOrder(self.ui.exit_app, self.ui.form_ihi_qst_num)
+        
+        
 def create_app():
     """Initiate PyQT Application"""
     app = QtWidgets.QApplication(sys.argv)
