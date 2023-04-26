@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import image_source_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -205,7 +205,7 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.label_85 = QtWidgets.QLabel(self.centralwidget)
-        self.label_85.setGeometry(QtCore.QRect(280, 30, 221, 31))
+        self.label_85.setGeometry(QtCore.QRect(290, 30, 221, 31))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(9)
@@ -340,6 +340,26 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.ansys_path.setFont(font)
         self.ansys_path.setObjectName("ansys_path")
+        self.label_88 = QtWidgets.QLabel(self.centralwidget)
+        self.label_88.setGeometry(QtCore.QRect(10, 10, 231, 71))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_88.setFont(font)
+        self.label_88.setStyleSheet("image: url(:/ihi/ihi_logo.jpg)")
+        self.label_88.setObjectName("label_88")
+        self.label_89 = QtWidgets.QLabel(self.centralwidget)
+        self.label_89.setGeometry(QtCore.QRect(570, 10, 161, 71))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_89.setFont(font)
+        self.label_89.setStyleSheet("image: url(:/quest/quest_logo.jpg)")
+        self.label_89.setObjectName("label_89")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 751, 21))
@@ -355,7 +375,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Model Analysis"))
-        self.label_80.setText(_translate("MainWindow", "<html><head/><body><p>ECM #</p></body></html>"))
+        self.label_80.setText(_translate("MainWindow", "<html><head/><body><p>ECM # </p></body></html>"))
         self.label_63.setText(_translate("MainWindow", "<html><head/><body><p>TIP FIX RST FILE</p></body></html>"))
         self.tip_fix_file_path.setText(_translate("MainWindow", "path...."))
         self.tip_fix_file_path_browse.setText(_translate("MainWindow", "BROWSE RST FILE"))
@@ -382,3 +402,16 @@ class Ui_MainWindow(object):
         self.label_67.setText(_translate("MainWindow", "<html><head/><body><p>ANSYS PATH</p></body></html>"))
         self.ansys_path_browse.setText(_translate("MainWindow", "BROWSE ANSYS PATH"))
         self.ansys_path.setText(_translate("MainWindow", "path...."))
+        self.label_88.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.label_89.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
